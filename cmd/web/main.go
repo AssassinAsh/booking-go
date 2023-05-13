@@ -30,12 +30,9 @@ func main() {
 	repo := handlers.NewRepository(&app)
 	handlers.NewHandler(repo)
 
-	http.HandleFunc("/", handlers.Repo.Home)
-	http.HandleFunc("/about", handlers.Repo.About)
-
 	fmt.Println(fmt.Sprintf("Service started on port: %s", portNumber))
 
 	app.UserCache = true
 
-	http.ListenAndServe(portNumber, nil)
+	http.ListenAndServe(portNumber, routes())
 }
