@@ -9,6 +9,7 @@ import (
 
 	"github.com/AssassinAsh/going-go/pkg/cache"
 	"github.com/AssassinAsh/going-go/pkg/config"
+	"github.com/AssassinAsh/going-go/pkg/models"
 )
 
 var app *config.AppConfig
@@ -18,7 +19,7 @@ func NewTemplates(a *config.AppConfig) {
 }
 
 // RenderTemplate - fetched templates from the cache and renders
-func RenderTemplate(w http.ResponseWriter, tmpl string) {
+func RenderTemplate(w http.ResponseWriter, tmpl string, data *models.TemplateData) {
 
 	var ts map[string]*template.Template
 
@@ -36,7 +37,7 @@ func RenderTemplate(w http.ResponseWriter, tmpl string) {
 
 	buff := new(bytes.Buffer)
 
-	err := t.Execute(buff, nil)
+	err := t.Execute(buff, data)
 
 	if err != nil {
 		log.Fatal(err)

@@ -34,5 +34,5 @@ func main() {
 
 	app.UserCache = true
 
-	http.ListenAndServe(portNumber, routes())
+	http.ListenAndServe(portNumber, routes(&app))
 }
