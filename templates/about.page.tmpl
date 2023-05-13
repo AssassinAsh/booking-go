@@ -12,6 +12,13 @@
                 This is about page
             </h1>
             <p>{{index .StringMap "text"}}</p>
+            <p>
+                {{if ne (index .StringMap "ipAddress") ""}}
+                    Your IP address is {{index .StringMap "ipAddress"}}
+                {{else}}
+                    Please visit <a href="/">Home Page</a>
+                {{end}}
+            </p>
         </div>
     </div>
 </div>

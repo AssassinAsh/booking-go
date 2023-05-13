@@ -4,19 +4,32 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"time"
 
 	"github.com/AssassinAsh/going-go/pkg/cache"
 	"github.com/AssassinAsh/going-go/pkg/config"
 	"github.com/AssassinAsh/going-go/pkg/handlers"
 	"github.com/AssassinAsh/going-go/pkg/render"
+	"github.com/alexedwards/scs/v2"
 )
+
+var app config.AppConfig
 
 const portNumber = ":8080"
 
 // main function of the application
 func main() {
 
-	var app config.AppConfig
+	// Set to true for production
+	app.IsProduction = false
+
+	session := scs.New()
+	session.Lifetime = 24 * time.Hour
+	session.Cookie.Secure = app.IsProduction
+	session.Cookie.Persist = true
+	session.Cookie.SameSite = http.SameSiteLaxMode
+
+	app.Session = session
 
 	tc, err := cache.CreateTemplateCache()
 
@@ -30,7 +43,7 @@ func main() {
 	repo := handlers.NewRepository(&app)
 	handlers.NewHandler(repo)
 
-	fmt.Println(fmt.Sprintf("Service started on port: %s", portNumber))
+	fmt.Printf("Service started on port: %s", portNumber)
 
 	app.UserCache = true
 

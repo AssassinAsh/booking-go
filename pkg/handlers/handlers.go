@@ -25,6 +25,9 @@ func NewHandler(r *Repository) {
 }
 
 func (m *Repository) Home(w http.ResponseWriter, r *http.Request) {
+
+	m.AppConfig.Session.Put(r.Context(), "ipAddress", r.RemoteAddr)
+
 	strings := map[string]string{
 		"text": "Home page para",
 	}
@@ -37,7 +40,8 @@ func (m *Repository) Home(w http.ResponseWriter, r *http.Request) {
 
 func (m *Repository) About(w http.ResponseWriter, r *http.Request) {
 	strings := map[string]string{
-		"text": "About page para",
+		"text":      "About page para",
+		"ipAddress": m.AppConfig.Session.GetString(r.Context(), "ipAddress"),
 	}
 
 	render.RenderTemplate(w, "about.page.tmpl", &models.TemplateData{
