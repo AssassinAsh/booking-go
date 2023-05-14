@@ -3,9 +3,9 @@ package handlers
 import (
 	"net/http"
 
-	"github.com/AssassinAsh/going-go/pkg/config"
-	"github.com/AssassinAsh/going-go/pkg/models"
-	"github.com/AssassinAsh/going-go/pkg/render"
+	"github.com/AssassinAsh/booking-go/pkg/config"
+	"github.com/AssassinAsh/booking-go/pkg/models"
+	"github.com/AssassinAsh/booking-go/pkg/render"
 )
 
 var Repo *Repository

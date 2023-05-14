@@ -3,8 +3,8 @@ package main
 import (
 	"net/http"
 
-	"github.com/AssassinAsh/going-go/pkg/config"
-	"github.com/AssassinAsh/going-go/pkg/handlers"
+	"github.com/AssassinAsh/booking-go/pkg/config"
+	"github.com/AssassinAsh/booking-go/pkg/handlers"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 )

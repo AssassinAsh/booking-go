@@ -7,9 +7,9 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/AssassinAsh/going-go/pkg/cache"
-	"github.com/AssassinAsh/going-go/pkg/config"
-	"github.com/AssassinAsh/going-go/pkg/models"
+	"github.com/AssassinAsh/booking-go/pkg/cache"
+	"github.com/AssassinAsh/booking-go/pkg/config"
+	"github.com/AssassinAsh/booking-go/pkg/models"
 )
 
 var app *config.AppConfig

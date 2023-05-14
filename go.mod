@@ -1,4 +1,4 @@
-module github.com/AssassinAsh/going-go
+module github.com/AssassinAsh/booking-go
 
 go 1.19
 

@@ -6,10 +6,10 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/AssassinAsh/going-go/pkg/cache"
-	"github.com/AssassinAsh/going-go/pkg/config"
-	"github.com/AssassinAsh/going-go/pkg/handlers"
-	"github.com/AssassinAsh/going-go/pkg/render"
+	"github.com/AssassinAsh/booking-go/pkg/cache"
+	"github.com/AssassinAsh/booking-go/pkg/config"
+	"github.com/AssassinAsh/booking-go/pkg/handlers"
+	"github.com/AssassinAsh/booking-go/pkg/render"
 	"github.com/alexedwards/scs/v2"
 )
 
